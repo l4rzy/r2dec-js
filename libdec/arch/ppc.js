@@ -537,11 +537,11 @@ module.exports = (function() {
             ops.push(Base.instructions.and(dst, dst, minv.toString(16)));
         } else if (minv == 0) {
             if (sh == 0) {
-                ops.push(Base.instructions.and(src, src, m.toString(16)));
+                ops.push(Base.instructions.and(dst, src, m.toString(16)));
             } else {
                 var value = Base.variable();
                 ops.push(Base.instructions.rotate_left(value, src, sh, 32));
-                ops.push(Base.instructions.and(instr.parsed[1], value, m.toString(16)));
+                ops.push(Base.instructions.and(dst, value, m.toString(16)));
             }
         } else {
             var value0 = Base.variable();
